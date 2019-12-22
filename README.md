@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Lodash configuration
+This app is using lodash functions
+```
+npm i lodash
+```
