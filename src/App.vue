@@ -7,12 +7,13 @@
 
     <b-container class="bv-example-row">
       <b-row>
-        <b-col sm="8" offset="2">
+        <b-col sm="6" offset="3">
           <QuestionBox
                   v-if="questions.length"
                   v-bind:currentQuestion="questions[index]"
                   v-bind:next="next"
                   v-bind:increment="increment"
+                  v-bind:currentQuestionIndex="index"
           />
         </b-col>
       </b-row>

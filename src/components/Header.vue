@@ -1,8 +1,8 @@
 <template>
 
     <div>
-        <b-nav tabs>
-            <b-nav-item disabled>Vue Quiz</b-nav-item>
+        <b-nav tabs align="center">
+            <b-nav-item disabled>Vue History Quiz</b-nav-item>
             <b-nav-item disabled>Counter: {{numCorrect}}/{{numTotal}}</b-nav-item>
         </b-nav>
     </div>
@@ -20,5 +20,7 @@
 </script>
 
 <style scoped>
-
+    .nav-item {
+        font-size: 2em;
+    }
 </style>

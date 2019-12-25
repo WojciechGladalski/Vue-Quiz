@@ -12,7 +12,7 @@
                 <b-list-group-item
                         v-for="(answer, index) in shuffledAnswers"
                         v-bind:key="index"
-                        @click.prevent="selectAnswer(index)"
+                        @click="answered === false && submitAnswer(index)"
                         v-bind:class="answerClass(index)"
                 >
                     {{answer}}
@@ -20,15 +20,9 @@
             </b-list-group>
 
             <b-button
-                    variant="primary"
-                    @click="submitAnswer"
-                    v-bind:disabled="selectedIndex === null || answered"
-            >
-                Submit
-            </b-button>
-            <b-button
                     variant="success"
                     @click="next"
+                    v-bind:disabled="answered === false || currentQuestionIndex >= 9"
             >
                 Next question
             </b-button>
@@ -45,19 +39,18 @@
         props: {
             currentQuestion: Object,
             next: Function,
-            increment: Function
+            increment: Function,
+            currentQuestionIndex: Object
         },
         methods: {
-            selectAnswer(index) {
-                this.selectedIndex = index
-            },
             shuffleAnswers() {
-                //robi kopię zamiast odnosić się do tej samej tablicy
                 let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer]
                 this.shuffledAnswers = _.shuffle(answers)
                 this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
             },
-            submitAnswer() {
+            submitAnswer(index) {
+                this.selectedIndex = index
+
                 let isCorrect = false
 
                 if (this.selectedIndex === this.correctIndex) {
@@ -69,14 +62,14 @@
             },
             answerClass(index) {
 
-                let answerClass = ''
+                let answerClass = 'waiting'
 
-                if (!this.answered && this.selectedIndex === index) {
-                    answerClass = 'selected'
-                } else if (this.answered && this.correctIndex === index) {
+                if (this.answered && this.correctIndex === index) {
                     answerClass = 'correct'
                 } else if (this.answered && this.selectedIndex === index && this.correctIndex !== index) {
                     answerClass = 'incorrect'
+                } else if (this.answered) {
+                    answerClass = 'mute'
                 }
                 return answerClass
             }
@@ -107,15 +100,12 @@
     .list-group {
        margin-bottom: 16px;
     }
-    .list-group-item:hover {
+    .waiting:hover {
         background: #EEE;
         cursor: pointer;
     }
     .btn {
         margin: 0 6px;
-    }
-    .selected {
-        background-color: lightskyblue;
     }
     .correct {
         background-color: greenyellow;
