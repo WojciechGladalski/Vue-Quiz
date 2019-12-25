@@ -2,6 +2,9 @@
 Quiz written with Vue framework, using conncection to opentdb API.
 Questions configuration: category - history, level - hard.
 
+## Heroku deployment
+This app has been deployed to https://vue-history-quiz.herokuapp.com/
+
 ## Project setup
 ```
 npm install
