@@ -1,4 +1,6 @@
 # Vue Quiz
+Quiz written with Vue framework, using conncection to opentdb API.
+Questions configuration: category - history, level - hard.
 
 ## Project setup
 ```

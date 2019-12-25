@@ -22,7 +22,7 @@
             <b-button
                     variant="primary"
                     @click="submitAnswer"
-                    :disabled="selectedIndex === null || answered"
+                    v-bind:disabled="selectedIndex === null || answered"
             >
                 Submit
             </b-button>
@@ -52,6 +52,7 @@
                 this.selectedIndex = index
             },
             shuffleAnswers() {
+                //robi kopię zamiast odnosić się do tej samej tablicy
                 let answers = [...this.currentQuestion.incorrect_answers, this.currentQuestion.correct_answer]
                 this.shuffledAnswers = _.shuffle(answers)
                 this.correctIndex = this.shuffledAnswers.indexOf(this.currentQuestion.correct_answer)
