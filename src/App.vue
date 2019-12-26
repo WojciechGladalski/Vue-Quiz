@@ -5,9 +5,9 @@
         v-bind:numTotal="numTotal"
     />
 
-    <b-container class="bv-example-row">
+    <b-container class="bv-example-row col-sm-5">
       <b-row>
-        <b-col sm="6" offset="3">
+        <b-col>
           <QuestionBox
                   v-if="questions.length"
                   v-bind:currentQuestion="questions[index]"
