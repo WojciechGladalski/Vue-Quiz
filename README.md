@@ -1,6 +1,6 @@
 # Vue Quiz
 Quiz written with Vue framework, using conncection to opentdb API.
-Questions configuration: category - history, level - hard.
+Questions configuration: category - history, difficulty level - all.
 
 ## Heroku deployment
 This app has been deployed to https://vue-history-quiz.herokuapp.com/
@@ -27,9 +27,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Lodash configuration
-This app is using lodash functions
-```
-npm i lodash
-```

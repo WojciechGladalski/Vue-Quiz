@@ -40,7 +40,7 @@
             currentQuestion: Object,
             next: Function,
             increment: Function,
-            currentQuestionIndex: Object
+            currentQuestionIndex: Number
         },
         methods: {
             shuffleAnswers() {
@@ -111,7 +111,7 @@
         background-color: greenyellow;
     }
     .incorrect {
-        background-color: darkred;
+        background-color: red;
     }
 
 </style>
